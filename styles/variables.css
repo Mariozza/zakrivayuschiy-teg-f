@@ -1,1 +1,23 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+    --font-reg: Inter-Variable;
+    --font-acc: PressStart2P;
+    --font-reg-text-weight: 400;
+    --font-reg-title-weight: 700;
+    --variable__inline-size: clamp(375px, calc(100vw * 700 /1440), 90vh) ;
+    --logo-color: rgba(255, 255, 255, 1);
+    --text-color: rgv(0,0,0);
+    --border-color: #000;
+    --contour-color: #000;
+    --sparks-color: #ff0000;
+    --background: repeating-linear-gradient(#d3d3d3 0 2px, transparent 2px 4px), repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px), linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
+  
+
+}
+
+@media (width < 768px) {
+    :root {
+        --variable__inline-size: 100vw;
+    }
+}
+
