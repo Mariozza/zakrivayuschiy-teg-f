@@ -13,7 +13,7 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--font-reg), serif;
+  font-family: var(--font-reg), "Arial", sans-serif;
   font-variation-settings: "wght" var(--font-reg-text-weight);
   background-attachment: fixed;
   font-size: 18px;
@@ -24,14 +24,14 @@
   display: flex;
   margin: 100px auto;
   min-block-size: 368px;
-  max-block-size: calc(var(--variable__inline-size) * 700 / 368);
+  max-block-size: calc(var(--page-inline-size) * 700 / 368);
   align-items: center;
   text-transform: uppercase;
   background-color: white;
 }
 
 .variable__inline-size {
-  max-inline-size: var(--variable__inline-size);
+  max-inline-size: var(--page-inline-size);
 }
 
 .border-block {
@@ -39,7 +39,7 @@
 }
 
 .heading {
-  font-family: var(--font-acc);
+  font-family: var(--font-acc), "Arial", sans-serif;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -63,7 +63,6 @@
   margin: auto;
   flex-direction: column;
   gap: 50px;
-  
 }
 
 .card {
@@ -74,6 +73,7 @@
 
 .card-title {
   font-size: 18px;
+  line-height: 21px;
   font-variation-settings: "wght" var(--font-reg-title-weight);
   padding: 5px 10px 5px 10px;
   border-block-end: 2px solid var(--border-color);
@@ -84,7 +84,7 @@
 }
 
 .card-image {
-  inline-size: calc(var(--variable__inline-size) - 4px);
+  inline-size: calc(var(--page-inline-size) - 4px);
   display: block;
   object-fit: contain;
 }
@@ -116,11 +116,11 @@
 .card-logo {
   position: absolute;
   inset-inline-end: 25px;
-  inset-block-start: 25px;
+  inset-block-start: 22px;
   text-shadow: -1px 0 var(--logo-color), 0 1px var(--logo-color),
     1px 0 var(--logo-color), 0 -1px var(--logo-color);
   mix-blend-mode: hard-light;
-  font-family: var(--font-acc);
+  font-family: var(--font-acc), "Arial", sans-serif;
   opacity: 0.5;
 }
 
@@ -135,18 +135,17 @@
   }
 }
 
-.card-article {
+.card-paragraph {
   padding: 25px;
   border-block-start: 2px solid var(--border-color);
-}
-
-.card-text {
-  padding-block-start: 27px;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
 }
 
 .like__zone {
-  padding-inline-end: 25px;
-  padding-block-end: 25px;
+  margin-inline-end: 25px;
+  margin-block-end: 25px;
   align-self: end;
   display: inline-flex;
 }
@@ -158,7 +157,7 @@
   border: 2px solid var(--border-color);
   background-color: white;
   font-size: 14px;
-  font-family: var(--font-acc);
+  font-family: var(--font-acc), "Arial", sans-serif;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
 }
@@ -190,6 +189,7 @@
   width: 36px;
   height: 39px;
   cursor: pointer;
+  padding-block-start: 1px;
 }
 
 .card__like-button {
@@ -199,23 +199,25 @@
   margin-inline-start: 12px;
 }
 
-.button:focus-visible {
+.button:focus-visible,
+.button:focus {
   outline: none;
   box-shadow: 2px 2px 0 var(--border-color);
 }
 
 .card__icon-button {
   /*— для кнопки, оборачивающей иконку*/
-  inline-size: 2.6875rem;
-  block-size: 2.375rem;
+  inline-size: 39px;
+  block-size: 36px;
   background-color: transparent;
   border: none;
-  padding: 0px 7px 0px 0px;
+  padding-block-start: 2px;
   cursor: pointer;
   transition: border-color 0.3s ease;
 }
 
-.card__icon-button:focus-visible {
+.card__icon-button:focus-visible,
+.card__icon-button:focus {
   outline: none;
   border: none;
 }
@@ -223,7 +225,7 @@
 .button__text {
   /*— для обозначения текстового элемента внутри кнопки*/
   position: relative;
-  font-family: var(--font-accent), sans-serif;
+  font-family: var(--font-accent), "Arial", sans-serif;
   font-size: 14px;
   line-height: 90%;
   z-index: 1;
@@ -236,7 +238,6 @@
 }
 
 .memory-button {
-  margin-block-start: 50px;
   margin-block-end: 103px;
   margin-inline-start: auto;
   margin-inline-end: auto;
@@ -251,21 +252,16 @@
   align-self: center;
 }
 
-.memory__close-button {
-  inline-size: 100%;
-  block-size: 2.375rem;
-  text-transform: uppercase;
-}
-
 .dialog {
   flex-direction: column;
-  max-inline-size: clamp(293px, calc(100vw * 0.685), 304px);
-  font-family: var(--font-acc), sans-serif;
+  max-inline-size: clamp(341px, calc(100vw * 0.9), 353px);
+  font-family: var(--font-acc), "Arial", sans-serif;
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
   border: 2px solid var(--border-color);
   background-color: white;
+  align-items: center;
 }
 
 .dialog[open] {
@@ -279,7 +275,14 @@
 .dialog-container {
   display: flex;
   gap: 20px;
-  margin-block-end: 30px;
+  margin: 30px;
+  inline-size: clamp(257px, 68vw, 293px);
+}
+
+.memory__close-button {
+  inline-size: clamp(257px, 68vw, 293px);
+  block-size: 38px;
+  text-transform: uppercase;
 }
 
 .floppy-anim {
@@ -300,7 +303,7 @@
     block-size: 84px;
     display: flex;
     flex-direction: column;
-    margin-block-start: 52px;
+    margin-block-start: 2px;
     margin-block-end: 100px;
   }
   .floppy {
@@ -309,5 +312,15 @@
     align-self: center;
     inline-size: 28px;
     block-size: 28px;
+  }
+
+  .card-logo {
+    position: absolute;
+    inset-inline-end: 13px;
+    inset-block-start: 20px;
+  }
+
+  .dialog-container {
+    margin: 30px 42px;
   }
 }

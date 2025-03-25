@@ -4,7 +4,7 @@
   --font-acc: PressStart2P;
   --font-reg-text-weight: 400;
   --font-reg-title-weight: 700;
-  --variable__inline-size: clamp(375px, calc(100vw * 700 / 1440), 90vh);
+  --page-inline-size: clamp(375px, calc(100vw * 700 / 1440), calc(100vw * 700 / 1440));
   --logo-color: rgba(255, 255, 255, 1);
   --text-color: rgv(0, 0, 0);
   --border-color: #000;
@@ -17,6 +17,6 @@
 
 @media (width < 768px) {
   :root {
-    --variable__inline-size: 100vw;
+    --page-inline-size: 100vw;
   }
 }
