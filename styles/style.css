@@ -82,12 +82,13 @@
 
 .card-img__logo-container {
   position: relative;
+  inline-size: 100%;
 }
 
 .card-image {
-  inline-size: var(--page-inline-size);
+  inline-size: 100%;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .filter-brightness {
@@ -150,6 +151,7 @@
   margin-block-end: 25px;
   align-self: end;
   display: inline-flex;
+  gap: 2px;
 }
 
 .button {

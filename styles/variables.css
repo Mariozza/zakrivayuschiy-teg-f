@@ -4,7 +4,7 @@
   --font-acc: PressStart2P;
   --font-reg-text-weight: 400;
   --font-reg-title-weight: 700;
-  --page-inline-size: max(min(100%, 700px), calc(100vw * 700 / 1440));
+  --page-inline-size: max(min(100%, 700px), calc(100% * 700 / 1440));
   --logo-color: rgba(255, 255, 255, 1);
   --text-color: rgv(0, 0, 0);
   --border-color: #000;
